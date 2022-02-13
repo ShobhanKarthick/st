@@ -5,11 +5,12 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Fira Code:pixelsize=14:antialias=true:autohint=true";
+
 /* Spare fonts */
 static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+	"JoyPixels:pixelsize=14:antialias=true:autohint=true",
+	"Symbols Nerd Font:pixelsize=14:antialias=true:autohint=true",
 };
 
 static int borderpx = 2;
@@ -25,7 +26,7 @@ static int borderpx = 2;
 static char *shell = "/bin/sh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
-char *scroll = NULL;
+char *scroll = "scroll";
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
 /* identification sequence returned in DA and DECID */
@@ -66,7 +67,7 @@ static double maxlatency = 33;
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
  * attribute.
  */
-static unsigned int blinktimeout = 800;
+static unsigned int blinktimeout = 300;
 
 /*
  * thickness of underline and bar cursors
@@ -100,37 +101,67 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 0.7;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+
+    /* Default Colors */
+	/* "black", */
+	/* "red3", */
+	/* "green3", */
+	/* "yellow3", */
+	/* "blue2", */
+	/* "magenta3", */
+	/* "cyan3", */
+	/* "gray90", */
+    
+    /* Moon fly Colors */
+	[0] = "#323437",
+	[1] = "#ff5454",
+	[2] = "#8cc85f",
+	[3] = "#e3c78a",
+	[4] = "#80a0ff",
+	[5] = "#d183e8",
+	[6] = "#79dac8",
+	[7] = "#a1aab8",
 
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+
+    /* Default Colors */
+	/* "gray50", */
+	/* "red", */
+	/* "green", */
+	/* "yellow", */
+	/* "#5c5cff", */
+	/* "magenta", */
+	/* "cyan", */
+	/* "white", */
+
+    /* Moon fly Colors */
+	[8] = "#7c8f8f",
+	[9] = "#ff5189",
+	[10] = "#36c692",
+	[11] = "#bfbf97",
+	[12] = "#74b2ff",
+	[13] = "#ae81ff",
+	[14] = "#85dc85",
+	[15] = "#e2637f",
 
 	[255] = 0,
 
+    /* Moonfly Special Colors */
+    [256] = "#282a36", 
+    [257] = "#f8f8f2",
+    [258] = "#080808",
+    [259] = "#eeeeee",
+
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+	/* "#cccccc", */
+	/* "#555555", */
+	/* "gray90", /1* default foreground colour *1/ */
+	/* "black", /1* default background colour *1/ */
 };
 
 
@@ -138,8 +169,8 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
+unsigned int defaultfg = 259;
+unsigned int defaultbg = 258;
 unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
